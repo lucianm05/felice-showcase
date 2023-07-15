@@ -2,16 +2,16 @@ import { Accordion, AccordionProps } from "felice";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
-export const AccordionShowcase = () => {
-  const classNames: AccordionProps["classNames"] = {
-    root: "w-full max-w-[20rem] flex flex-col space-y-2",
-    trigger: {
-      default: "w-full text-start px-4 py-2 bg-purple-200 shadow-sm rounded",
-      expanded: "rounded-b-none font-medium",
-    },
-    content: "px-4 py-2 border-purple-200 border rounded-b",
-  };
+const classNames: AccordionProps["classNames"] = {
+  root: "w-full max-w-[20rem] flex flex-col space-y-2",
+  trigger: {
+    default: "w-full text-start px-4 py-2 bg-purple-200 shadow-sm rounded",
+    expanded: "rounded-b-none font-medium",
+  },
+  content: "px-4 py-2 border-purple-200 border rounded-b",
+};
 
+export const AccordionShowcase = () => {
   return (
     <Showcase title="Prezentare Accordion">
       <ShowcaseItem title="Un singur Accordion nestilizat">
@@ -58,8 +58,7 @@ export const AccordionShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Un singur Accordion deschis{" "}
-            <b className="font-semibold">(type=single)</b>{" "}
+            Un singur Accordion deschis <b>(type=single)</b>{" "}
           </>
         }
       >
@@ -120,7 +119,7 @@ export const AccordionShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Accordion afișat cu funcția <b className="font-semibold">render</b>
+            Accordion afișat cu funcția <b>render</b>
           </>
         }
       >

@@ -1,5 +1,9 @@
-import { Dialog, Tabs } from "felice";
+import { Tabs } from "felice";
 import { AccordionShowcase } from "./components/accordion-showcase";
+import { CheckboxShowcase } from "./components/checkbox-showcase";
+import { DialogShowcase } from "./components/dialog-showcase";
+import { ProgressShowcase } from "./components/progress-showcase";
+import { RadioGroupShowcase } from "./components/radio-group-showcase";
 
 function App() {
   return (
@@ -8,29 +12,10 @@ function App() {
         defaultTab={5}
         data={[
           { element: "Accordion", panel: <AccordionShowcase /> },
-          { element: "Checkbox", panel: <div>Checkbox showcase</div> },
-          {
-            element: "Dialog",
-            panel: (
-              <div>
-                <div>Dialog showcase</div>
-
-                <Dialog
-                  title="Update your billing information"
-                  description="Your billing information is invalid. Please update it using the form below."
-                  closeButton={"X"}
-                >
-                  {({ state, triggerProps }) => (
-                    <button {...triggerProps}>
-                      {!state.open ? "Update billing" : "Updating billing..."}
-                    </button>
-                  )}
-                </Dialog>
-              </div>
-            ),
-          },
-          { element: "Progress", panel: <div>Progress showcase</div> },
-          { element: "RadioGroup", panel: <div>RadioGroup showcase</div> },
+          { element: "Checkbox", panel: <CheckboxShowcase /> },
+          { element: "Dialog", panel: <DialogShowcase /> },
+          { element: "Progress", panel: <ProgressShowcase /> },
+          { element: "RadioGroup", panel: <RadioGroupShowcase /> },
           {
             element: "Non existent element",
             panel: (

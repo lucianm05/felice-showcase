@@ -6,4 +6,8 @@
   body {
     @apply bg-slate-50 font-poppins;
   }
+
+  b {
+    @apply font-semibold;
+  }
 }
