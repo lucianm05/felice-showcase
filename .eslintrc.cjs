@@ -1,27 +1,30 @@
 /* eslint-env node */
 
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
+  parser: "@typescript-eslint/parser",
+  plugins: ["react", "@typescript-eslint"],
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:react-hooks/recommended',
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
   ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: true,
-    tsconfigRootDir: __dirname,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2021,
   },
-  plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-    '@typescript-eslint/no-non-null-assertion': 'off',
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
   },
-}
+  overrides: [
+    {
+      files: ["*.js"],
+      rules: {
+        "typescript/no-var-requires": "off",
+      },
+    },
+  ],
+};

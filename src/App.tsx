@@ -1,5 +1,5 @@
 import { Dialog, Tabs } from "felice";
-import "./App.css";
+import { AccordionShowcase } from "./components/accordion-showcase";
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <Tabs
         defaultTab={5}
         data={[
-          { element: "Accordion", panel: <div>Accordion showcase</div> },
+          { element: "Accordion", panel: <AccordionShowcase /> },
           { element: "Checkbox", panel: <div>Checkbox showcase</div> },
           {
             element: "Dialog",
@@ -18,6 +18,7 @@ function App() {
                 <Dialog
                   title="Update your billing information"
                   description="Your billing information is invalid. Please update it using the form below."
+                  closeButton={"X"}
                 >
                   {({ state, triggerProps }) => (
                     <button {...triggerProps}>
@@ -64,14 +65,16 @@ function App() {
             ),
           },
         ]}
-        styles={{
-          tablist: {
-            display: "flex",
-            flexDirection: "column",
+        classNames={{
+          root: "flex p-8 space-x-8",
+          tablist: "flex flex-col space-y-1",
+          element: {
+            default:
+              "py-2 px-4 text-center bg-white border border-gray-300 whitespace-nowrap hover:bg-zinc-200 transition-colors rounded text-lg",
+            disabled: "!bg-zinc-400 cursor-not-allowed",
+            selected: "bg-zinc-200",
           },
-          root: {
-            display: "flex",
-          },
+          panel: "w-full",
         }}
         orientation="vertical"
       />
