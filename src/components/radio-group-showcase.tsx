@@ -112,14 +112,7 @@ export const RadioGroupShowcase = () => {
           classNames={{ root: "flex flex-col space-y-4" }}
           data={allRadioButtons.map<RadioButton>((btn) => ({
             ...btn,
-            render: ({
-              buttonProps,
-              descriptionProps,
-              labelProps,
-              rootProps,
-              state,
-              textContainerProps,
-            }) => {
+            render: ({ buttonProps, descriptionProps, labelProps, state }) => {
               return (
                 <button
                   {...buttonProps}

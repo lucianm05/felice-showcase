@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 font-poppins;
+    @apply bg-slate-50 font-poppins min-h-[120vh];
   }
 
   b {

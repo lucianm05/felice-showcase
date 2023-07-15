@@ -7,8 +7,9 @@ const classNames: CheckboxProps["classNames"] = {
   root: "flex items-center space-x-1",
   checkbox: {
     default:
-      "w-6 h-6 bg-white border border-slate-400 rounded flex items-center justify-center transition-colors",
+      "w-6 h-6 border border-slate-400 rounded flex items-center justify-center transition-colors",
     checked: "bg-emerald-200",
+    unchecked: "bg-white",
     disabled: "bg-zinc-500 text-white cursor-not-allowed",
   },
 };
