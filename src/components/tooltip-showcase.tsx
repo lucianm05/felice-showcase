@@ -1,4 +1,4 @@
-import { Tooltip, TooltipProps } from "felice";
+import { Tooltip, TooltipClassNames } from "felice";
 import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
@@ -15,7 +15,7 @@ const tooltipContent = (
   </div>
 );
 
-const classNames: TooltipProps["classNames"] = {
+const classNames: TooltipClassNames = {
   content: "bg-white border border-slate-400 rounded p-3 w-full max-w-[15rem]",
   trigger: "w-max px-4 py-2 bg-slate-400 rounded text-white",
 };

@@ -1,9 +1,9 @@
-import { Switch, SwitchProps } from "felice";
+import { Switch, SwitchClassNames } from "felice";
 import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
-const classNames: SwitchProps["classNames"] = {
+const classNames: SwitchClassNames = {
   root: "flex space-x-2 items-center",
   switch: {
     default:
@@ -31,10 +31,7 @@ export const SwitchShowcase = () => {
       </ShowcaseItem>
 
       <ShowcaseItem title={<>Switch stilizat</>}>
-        <Switch
-          label="Marketing e-mails"
-          classNames={classNames}
-        />
+        <Switch label="Marketing e-mails" classNames={classNames} />
       </ShowcaseItem>
 
       <ShowcaseItem

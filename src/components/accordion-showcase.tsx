@@ -1,8 +1,8 @@
-import { Accordion, AccordionProps } from "felice";
+import { Accordion, AccordionClassNames } from "felice";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
-const classNames: AccordionProps["classNames"] = {
+const classNames: AccordionClassNames = {
   root: "w-full max-w-[20rem] flex flex-col space-y-2",
   trigger: {
     default: "w-full text-start px-4 py-2 bg-purple-200 shadow-sm rounded",

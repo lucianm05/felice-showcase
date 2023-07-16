@@ -1,9 +1,9 @@
-import { Checkbox, CheckboxProps } from "felice";
+import { Checkbox, CheckboxClassNames } from "felice";
 import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
-const classNames: CheckboxProps["classNames"] = {
+const classNames: CheckboxClassNames = {
   root: "flex items-center space-x-1",
   checkbox: {
     default:

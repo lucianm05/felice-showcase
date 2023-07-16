@@ -1,4 +1,10 @@
-import { Select, SelectOption, SelectProps } from "felice";
+import {
+  Select,
+  SelectClassNames,
+  SelectOption,
+  SelectProps,
+  cn,
+} from "felice";
 import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
@@ -13,9 +19,12 @@ const options: SelectOption[] = [
   { label: "Contabilitate", value: "contab" },
 ];
 
-const classNames: SelectProps["classNames"] = {
+const classNames: SelectClassNames = {
   root: "flex flex-col space-y-2",
-  trigger: "w-max bg-white border border-slate-400 px-4 py-2 rounded",
+  trigger: {
+    default: "w-max bg-white border border-slate-400 px-4 py-2 rounded",
+    disabled: "opacity-50 cursor-not-allowed",
+  },
   list: "bg-white border border-slate-400 rounded mt-2 min-w-[19rem] ",
   option: {
     default: "px-4 py-2 cursor-pointer transition-colors",
@@ -59,14 +68,13 @@ export const SelectShowcase = () => {
       >
         <Select
           {...selectProps}
-          renderOption={(optionProps, option) => {
+          renderOption={({ optionProps, option }) => {
             return (
               <li
                 {...optionProps}
-                className={`${optionProps.className} flex items-center justify-between w-full`}
+                className={cn( optionProps.className,"flex items-center justify-between w-full")}
               >
                 <span>{option.label}</span>
-
                 <span>{optionProps["aria-selected"] && "✓"}</span>
               </li>
             );

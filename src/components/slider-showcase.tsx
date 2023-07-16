@@ -1,23 +1,23 @@
-import { Slider, SliderProps, SliderValue, cn } from "felice";
+import { Slider, SliderClassNames, SliderProps, SliderValue, cn } from "felice";
 import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
-const classNames: SliderProps["classNames"] = {
+const classNames: SliderClassNames = {
   track:
-    "w-full h-full bg-slate-300 rounded-full absolute data-[disabled=true]:bg-slate-700",
+    "w-full h-full bg-slate-300 rounded-full absolute data-[disabled=true]:bg-slate-500 data-[disabled=true]:opacity-50",
   thumb:
     "w-5 h-5 bg-white border-slate-400 absolute rounded-full border data-[disabled=true]:cursor-not-allowed data-[disabled=true]:bg-slate-400",
   range: "w-full h-full bg-green-500 rounded-full",
 };
 
-const verticalSliderClassNames: SliderProps["classNames"] = {
+const verticalSliderClassNames: SliderClassNames = {
   ...classNames,
   root: "min-h-[16rem] w-2",
   thumb: cn(classNames.thumb, "left-1/2 -translate-x-1/2"),
 };
 
-const horizontalSliderClasNames: SliderProps["classNames"] = {
+const horizontalSliderClasNames: SliderClassNames = {
   ...classNames,
   root: "w-full max-w-[16rem] h-2",
   thumb: cn(classNames.thumb, "top-1/2 -translate-y-1/2"),
@@ -133,7 +133,6 @@ export const SliderShowcase = () => {
             value={currentValue}
             onValueChange={setCurrentValue}
             classNames={horizontalSliderClasNames}
-            orientation="horizontal"
           />
 
           <div className="space-x-4">
@@ -165,10 +164,7 @@ export const SliderShowcase = () => {
       >
         <Slider
           {...singleSliderProps}
-          value={currentValue}
-          onValueChange={setCurrentValue}
           classNames={horizontalSliderClasNames}
-          orientation="horizontal"
           disabled
         />
       </ShowcaseItem>

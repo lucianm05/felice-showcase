@@ -1,14 +1,16 @@
-import { Progress, ProgressProps } from "felice";
+import { Progress, ProgressChildren, ProgressClassNames } from "felice";
 import { useEffect, useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
-const classNames: ProgressProps["classNames"] = {
-  root: "h-3 w-full max-w-[20rem] border border-slate-400 rounded-full bg-slate-100",
+const classNames: ProgressClassNames = {
+  root: "w-full max-w-[20rem]",
+  progressbar:
+    "h-3 w-full max-w-[20rem] border border-slate-400 rounded-full bg-slate-100",
   indicator: "h-full bg-green-400 rounded-full",
 };
 
-const progressIndicator: ProgressProps["children"] = ({
+const progressIndicator: ProgressChildren = ({
   indicatorProps,
   state: { percentageValue },
 }) => <div {...indicatorProps} style={{ width: `${percentageValue}%` }}></div>;
@@ -81,7 +83,7 @@ export const ProgressShowcase = () => {
           </>
         }
       >
-        <div className="flex items-center space-x-2">
+        <div className="flex items-end space-x-2">
           <Progress
             label="Preluare date"
             min={progressValues.min}
@@ -92,8 +94,10 @@ export const ProgressShowcase = () => {
             {progressIndicator}
           </Progress>
 
-          <div>
-            <span>{currentValue}/{progressValues.max}</span>
+          <div className="-mb-1">
+            <span>
+              {currentValue}/{progressValues.max}
+            </span>
           </div>
         </div>
       </ShowcaseItem>

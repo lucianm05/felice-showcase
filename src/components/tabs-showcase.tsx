@@ -1,7 +1,7 @@
-import { Tab, Tabs, TabsProps, cn } from "felice";
+import { Tab, Tabs, TabsClassNames, cn } from "felice";
+import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
-import { useState } from "react";
 
 const data: Tab[] = [
   { element: "Tab 1", panel: <div>Tab 1 </div> },
@@ -9,7 +9,7 @@ const data: Tab[] = [
   { element: "Tab 3", panel: <div>Tab 3 </div> },
 ];
 
-const classNames: TabsProps["classNames"] = {
+const classNames: TabsClassNames = {
   element: {
     default: "px-4 py-2 bg-white rounded border border-slate-400",
     selected: "!bg-slate-200",
@@ -95,7 +95,7 @@ export const TabsShowcase = () => {
           defaultTab={1}
         />
       </ShowcaseItem>
-      
+
       <ShowcaseItem
         title={
           <>

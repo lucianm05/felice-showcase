@@ -1,9 +1,9 @@
-import { Dialog, DialogProps, RadioGroup } from "felice";
+import { Dialog, DialogClassNames, RadioGroup } from "felice";
+import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
-import { useState } from "react";
 
-const classNames: DialogProps["classNames"] = {
+const classNames: DialogClassNames = {
   overlay: "fixed top-0 left-0 w-full h-full bg-black/25 cursor-default",
   root: "bg-white w-full max-w-[37.5rem] fixed z-[1] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 py-4 px-6 rounded-lg shadow",
   title: "text-2xl font-medium",
@@ -11,7 +11,7 @@ const classNames: DialogProps["classNames"] = {
   header: "flex items-center justify-between",
   closeButton: "text-2xl",
   trigger:
-    "py-2 px-4 rounded bg-slate-400 text-white hover:bg-slate-500 focus:bg-slate-600 transition-colors disabled:bg-slate-700 disabled:text-slate-400 disabled:opacity-50 disabled:cursor-not-allowed",
+    "py-2 px-4 rounded bg-slate-400 text-white hover:bg-slate-500 focus:bg-slate-600 transition-colors data-[disabled=true]:bg-slate-700 data-[disabled=true]:text-slate-400 data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-not-allowed",
 };
 
 export const DialogShowcase = () => {

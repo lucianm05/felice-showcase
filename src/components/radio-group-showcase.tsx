@@ -1,4 +1,4 @@
-import { RadioButton, RadioGroup, RadioGroupProps } from "felice";
+import { RadioButton, RadioGroup, RadioGroupClassNames } from "felice";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
@@ -17,7 +17,7 @@ const allRadioButtons = [
   { label: "Zmeură", value: "raspberry", disabled: true },
 ];
 
-const classNames: RadioGroupProps["classNames"] = {
+const classNames: RadioGroupClassNames = {
   radioButton: {
     root: {
       default: "flex space-x-1 items-center",

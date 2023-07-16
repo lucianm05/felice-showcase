@@ -1019,10 +1019,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-felice@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/felice/-/felice-1.0.2.tgz#74d5cb28e75d8448c98db88ef42a7a5daf894fb3"
-  integrity sha512-qbX9wAtylD3IS7lslfABFOvkA9F9qm9EtjR/FL8syMFeL5eiB2OPntyfSnz7Ynq3mBlwFN3T5u7fi2VOPqNiBg==
+felice@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/felice/-/felice-1.0.4.tgz#4d39cb01a477470da80c3eeeccbec64003a11744"
+  integrity sha512-7xGR3tmyQVfFNA1hRA4xmDZmixo8hgvF6sV+2qwdaDzfiqvTEe7x0Rbm4cDk8/KsAHWC3rrPi4HDi6cpTfbdIw==
   dependencies:
     react "^18.2.0"
 
