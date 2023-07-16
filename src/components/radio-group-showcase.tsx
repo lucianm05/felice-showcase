@@ -35,10 +35,18 @@ const classNames: RadioGroupProps["classNames"] = {
 export const RadioGroupShowcase = () => {
   return (
     <Showcase title="Prezentare RadioGroup">
+      <ShowcaseItem title={<>RadioGroup nestilizat</>}>
+        <RadioGroup
+          orientation="horizontal"
+          label="Topping extra"
+          data={radioButtons}
+        />
+      </ShowcaseItem>
+
       <ShowcaseItem
         title={
           <>
-            RadioGroup <b>orizontal</b> (orientare implicită)
+            RadioGroup <b>orizontal</b> (orientare implicită) stilizat
           </>
         }
       >
@@ -56,7 +64,7 @@ export const RadioGroupShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            RadioGroup <b>vertical</b>
+            RadioGroup <b>vertical</b> stilizat
           </>
         }
       >
@@ -67,34 +75,6 @@ export const RadioGroupShowcase = () => {
           classNames={{
             ...classNames,
             root: "flex flex-col space-y-4",
-          }}
-        />
-      </ShowcaseItem>
-
-      <ShowcaseItem
-        title={
-          <>
-            RadioGroup cu elemente <b>inactive</b>
-          </>
-        }
-      >
-        <RadioGroup
-          orientation="horizontal"
-          label="Topping extra"
-          data={allRadioButtons}
-          classNames={{
-            ...classNames,
-            root: "flex flex-row [&>*]:mr-8 [&>*]:mt-2 -mt-2 flex-wrap",
-          }}
-        />
-
-        <RadioGroup
-          orientation="vertical"
-          label="Topping extra"
-          data={allRadioButtons}
-          classNames={{
-            ...classNames,
-            root: "flex flex-col space-y-4 mt-12",
           }}
         />
       </ShowcaseItem>
@@ -132,6 +112,34 @@ export const RadioGroupShowcase = () => {
               );
             },
           }))}
+        />
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
+            RadioGroup cu elemente <b>inactive</b>
+          </>
+        }
+      >
+        <RadioGroup
+          orientation="horizontal"
+          label="Topping extra"
+          data={allRadioButtons}
+          classNames={{
+            ...classNames,
+            root: "flex flex-row [&>*]:mr-8 [&>*]:mt-2 -mt-2 flex-wrap",
+          }}
+        />
+
+        <RadioGroup
+          orientation="vertical"
+          label="Topping extra"
+          data={allRadioButtons}
+          classNames={{
+            ...classNames,
+            root: "flex flex-col space-y-4 mt-12",
+          }}
         />
       </ShowcaseItem>
     </Showcase>

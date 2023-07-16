@@ -1,7 +1,7 @@
 import { Select, SelectOption, SelectProps } from "felice";
+import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
-import { useState } from "react";
 
 const options: SelectOption[] = [
   { label: "Informatică Economică", value: "info" },
@@ -40,7 +40,7 @@ export const SelectShowcase = () => {
         <Select {...selectProps} classNames={undefined} />
       </ShowcaseItem>
 
-      <ShowcaseItem title="Select cu structură implicită">
+      <ShowcaseItem title="Select stilizat">
         <Select
           {...selectProps}
           classNames={{
@@ -50,7 +50,13 @@ export const SelectShowcase = () => {
         />
       </ShowcaseItem>
 
-      <ShowcaseItem title="Select cu structură definită de utilizator">
+      <ShowcaseItem
+        title={
+          <>
+            Select cu structură <b>definită de utilizator</b>
+          </>
+        }
+      >
         <Select
           {...selectProps}
           renderOption={(optionProps, option) => {
@@ -72,10 +78,6 @@ export const SelectShowcase = () => {
         <Select {...selectProps} defaultValue="info" />
       </ShowcaseItem>
 
-      <ShowcaseItem title="Select deschis în mod implicit">
-        {/* <Select {...selectProps}  defaultOpen /> */}
-      </ShowcaseItem>
-
       <ShowcaseItem
         title={
           <>
@@ -92,6 +94,16 @@ export const SelectShowcase = () => {
         </button>
 
         <Select {...selectProps} open={open} onOpenChange={setOpen} />
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
+            Select <b>inactiv</b>
+          </>
+        }
+      >
+        <Select {...selectProps} disabled />
       </ShowcaseItem>
     </Showcase>
   );

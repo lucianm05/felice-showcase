@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxProps } from "felice";
+import { useState } from "react";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
-import { useState } from "react";
 
 const classNames: CheckboxProps["classNames"] = {
   root: "flex items-center space-x-1",
@@ -19,13 +19,11 @@ export const CheckboxShowcase = () => {
 
   return (
     <Showcase title="Prezentare Checkbox">
-      <ShowcaseItem
-        title={
-          <>
-            Checkbox cu <b>indicator</b> prin <b>props</b>
-          </>
-        }
-      >
+      <ShowcaseItem title="Checkbox nestilizat">
+        <Checkbox label="Termeni și condiții" />
+      </ShowcaseItem>
+
+      <ShowcaseItem title={<>Checkbox stilizat</>}>
         <Checkbox
           label="Termeni și condiții"
           indicator={({ state }) => (
@@ -38,11 +36,11 @@ export const CheckboxShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Checkbox cu <b>indicator</b> ca element copil
+            Checkbox cu <b>etichetă ascunsă</b>
           </>
         }
       >
-        <Checkbox label="Termeni și condiții" classNames={classNames}>
+        <Checkbox label="Termeni și condiții" hideLabel classNames={classNames}>
           {({ state }) => <span className="">{state.checked ? "✓" : "✗"}</span>}
         </Checkbox>
       </ShowcaseItem>
@@ -50,26 +48,7 @@ export const CheckboxShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Checkbox <b>inactiv</b>
-          </>
-        }
-      >
-        <Checkbox
-          label="Termeni și condiții"
-          indicator={({ state }) => {
-            if (state.disabled) return <span>🛇</span>;
-
-            return <span>{state.checked ? "✓" : "✗"}</span>;
-          }}
-          classNames={classNames}
-          disabled
-        />
-      </ShowcaseItem>
-
-      <ShowcaseItem
-        title={
-          <>
-            Checkbox cu <b>state</b> gestionat extern
+            Checkbox cu <b>state controlat extern</b>
           </>
         }
       >
@@ -94,11 +73,30 @@ export const CheckboxShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Checkbox cu <b>etichetă ascunsă</b>
+            Checkbox <b>inactiv</b>
           </>
         }
       >
-        <Checkbox label="Termeni și condiții" hideLabel classNames={classNames}>
+        <Checkbox
+          label="Termeni și condiții"
+          indicator={({ state }) => {
+            if (state.disabled) return <span>🛇</span>;
+
+            return <span>{state.checked ? "✓" : "✗"}</span>;
+          }}
+          classNames={classNames}
+          disabled
+        />
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
+            Checkbox cu <b>indicator</b> ca element copil
+          </>
+        }
+      >
+        <Checkbox label="Termeni și condiții" classNames={classNames}>
           {({ state }) => <span className="">{state.checked ? "✓" : "✗"}</span>}
         </Checkbox>
       </ShowcaseItem>

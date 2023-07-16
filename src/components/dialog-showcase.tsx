@@ -1,6 +1,7 @@
 import { Dialog, DialogProps, RadioGroup } from "felice";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
+import { useState } from "react";
 
 const classNames: DialogProps["classNames"] = {
   overlay: "fixed top-0 left-0 w-full h-full bg-black/25 cursor-default",
@@ -10,13 +11,24 @@ const classNames: DialogProps["classNames"] = {
   header: "flex items-center justify-between",
   closeButton: "text-2xl",
   trigger:
-    "py-2 px-4 rounded bg-slate-400 text-white hover:bg-slate-500 focus:bg-slate-600 transition-colors",
+    "py-2 px-4 rounded bg-slate-400 text-white hover:bg-slate-500 focus:bg-slate-600 transition-colors disabled:bg-slate-700 disabled:text-slate-400 disabled:opacity-50 disabled:cursor-not-allowed",
 };
 
 export const DialogShowcase = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <Showcase title="Prezentare Dialog">
-      <ShowcaseItem title="Dialog stilizat de către utilizator">
+      <ShowcaseItem title="Dialog nestilizat">
+        <Dialog
+          title="Actualizați informațiile de plată"
+          description="Informațiile despre modalitatea de plată nu mai sunt valabile. Sunteți rugat să le actualizați pentru a continua operațiunea."
+        >
+          Actualizați informațiile
+        </Dialog>
+      </ShowcaseItem>
+
+      <ShowcaseItem title="Dialog stilizat">
         <Dialog
           title="Actualizați informațiile de plată"
           description="Informațiile despre modalitatea de plată nu mai sunt valabile. Sunteți rugat să le actualizați pentru a continua operațiunea."
@@ -63,7 +75,13 @@ export const DialogShowcase = () => {
         </Dialog>
       </ShowcaseItem>
 
-      <ShowcaseItem title="Dialog cu structură si stiluri definite de utilizator">
+      <ShowcaseItem
+        title={
+          <>
+            Dialog cu structură si stiluri <b>definite de utilizator</b>
+          </>
+        }
+      >
         <Dialog
           render={({
             actions,
@@ -141,6 +159,88 @@ export const DialogShowcase = () => {
                 : "Alegeți metoda de plată"}
             </button>
           )}
+        </Dialog>
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
+            Dialog cu <b>state controlat extern</b>
+          </>
+        }
+      >
+        <div className="flex flex-col w-max space-y-4">
+          <Dialog
+            open={open}
+            onOpenChange={setOpen}
+            title="Actualizați informațiile de plată"
+            description="Informațiile despre modalitatea de plată nu mai sunt valabile. Sunteți rugat să le actualizați pentru a continua operațiunea."
+            closeButton="✗"
+            content={({ actions }) => (
+              <>
+                <form
+                  className="flex flex-col space-y-3"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    actions.close();
+                  }}
+                >
+                  <input
+                    type="text"
+                    placeholder="Nume complet"
+                    className="w-full border border-slate-400 px-4 py-2 rounded"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Stradă"
+                    className="w-full border border-slate-400 px-4 py-2 rounded"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Oraș"
+                    className="w-full border border-slate-400 px-4 py-2 rounded"
+                  />
+
+                  <button
+                    type="submit"
+                    className="py-2 px-4 rounded bg-teal-900 text-white w-max mx-auto !mt-6"
+                  >
+                    Salvează informațiile
+                  </button>
+                </form>
+              </>
+            )}
+            classNames={classNames}
+          >
+            Actualizați informațiile
+          </Dialog>
+          <button
+            type="button"
+            className="px-4 py-2 rounded bg-teal-900 text-white"
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            {!open ? "Deschide dialog" : "Dialogul este deschis"}
+          </button>
+        </div>
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
+            Dialog <b>inactiv</b>
+          </>
+        }
+      >
+        <Dialog
+          title="Actualizați informațiile de plată"
+          description="Informațiile despre modalitatea de plată nu mai sunt valabile. Sunteți rugat să le actualizați pentru a continua operațiunea."
+          closeButton="✗"
+          classNames={classNames}
+          disabled
+        >
+          Actualizați informațiile
         </Dialog>
       </ShowcaseItem>
     </Showcase>

@@ -35,7 +35,32 @@ export const AccordionShowcase = () => {
         />
       </ShowcaseItem>
 
-      <ShowcaseItem title="Mai multe componente Accordion stilizate">
+      <ShowcaseItem title="Mai multe Accordion nestilizate">
+        <Accordion
+          data={[
+            {
+              header: "Accordion nestilizat 1",
+              content: <p>Conținut 1</p>,
+            },
+            {
+              header: "Accordion nestilizat 2",
+              content: <p>Conținut 2</p>,
+            },
+          ]}
+        />
+      </ShowcaseItem>
+
+      <ShowcaseItem title="Un singur Accordion stilizat">
+        <Accordion
+          data={{
+            header: "Accordion stilizat",
+            content: "Conținut",
+          }}
+          classNames={classNames}
+        />
+      </ShowcaseItem>
+
+      <ShowcaseItem title="Mai multe Accordion stilizate">
         <Accordion
           data={[
             {
@@ -119,7 +144,7 @@ export const AccordionShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Accordion afișat cu funcția <b>render</b>
+            Accordion cu structură si stiluri <b>definite de utilizator</b>
           </>
         }
       >

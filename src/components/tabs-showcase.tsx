@@ -1,6 +1,7 @@
-import { Tab, Tabs, TabsProps } from "felice";
+import { Tab, Tabs, TabsProps, cn } from "felice";
 import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
+import { useState } from "react";
 
 const data: Tab[] = [
   { element: "Tab 1", panel: <div>Tab 1 </div> },
@@ -27,36 +28,40 @@ const verticalTabsClassNames = {
   ...classNames,
   tablist: "flex flex-col space-y-2 w-max min-w-max",
   root: "flex flex-row space-x-4",
-  panel: `${classNames.panel} w-full`,
+  panel: cn(classNames.panel, "w-full"),
 };
 
 export const TabsShowcase = () => {
+  const [currentTab, setCurrentTab] = useState(0);
+
+  const setCurrentTabHandler = (action: "prev" | "next") => {
+    setCurrentTab((prev) => {
+      if (action === "prev") {
+        const nextTab = prev - 1;
+
+        if (nextTab < 0) return 2;
+
+        return nextTab;
+      }
+
+      const nextTab = prev + 1;
+
+      if (nextTab > 2) return 0;
+
+      return nextTab;
+    });
+  };
+
   return (
     <Showcase title="Prezentare Tabs">
-      <ShowcaseItem
-        title={
-          <>
-            Tabs nestilizat <b>orizontal</b> (orientare implicită)
-          </>
-        }
-      >
+      <ShowcaseItem title={<>Tabs nestilizat</>}>
         <Tabs data={data} />
       </ShowcaseItem>
 
       <ShowcaseItem
         title={
           <>
-            Tabs nestilizat <b>vertical</b>
-          </>
-        }
-      >
-        <Tabs data={data} orientation="vertical" />
-      </ShowcaseItem>
-
-      <ShowcaseItem
-        title={
-          <>
-            Tabs stilizat <b>orizontal</b> (orientare implicită)
+            Tabs <b>orizontal</b> (orientare implicită) stilizat
           </>
         }
       >
@@ -66,7 +71,7 @@ export const TabsShowcase = () => {
       <ShowcaseItem
         title={
           <>
-            Tabs stilizat <b>vertical</b>
+            Tabs <b>vertical</b> stilizat
           </>
         }
       >
@@ -75,6 +80,55 @@ export const TabsShowcase = () => {
           orientation="vertical"
           classNames={verticalTabsClassNames}
         />
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
+            Tabs cu <b>valoare implicită</b>
+          </>
+        }
+      >
+        <Tabs
+          data={data}
+          classNames={horizontalTabsClassNames}
+          defaultTab={1}
+        />
+      </ShowcaseItem>
+      
+      <ShowcaseItem
+        title={
+          <>
+            Tabs cu <b>state controlat extern</b>
+          </>
+        }
+      >
+        <div className="flex flex-col space-y-4">
+          <Tabs
+            data={data}
+            classNames={horizontalTabsClassNames}
+            currentTab={currentTab}
+            onTabChange={setCurrentTab}
+          />
+
+          <div className="space-x-4">
+            <button
+              type="button"
+              className="mt-4 bg-teal-900 text-white py-2 px-4 rounded"
+              onClick={() => setCurrentTabHandler("prev")}
+            >
+              ←
+            </button>
+
+            <button
+              type="button"
+              className="mt-4 bg-teal-900 text-white py-2 px-4 rounded"
+              onClick={() => setCurrentTabHandler("next")}
+            >
+              →
+            </button>
+          </div>
+        </div>
       </ShowcaseItem>
 
       <ShowcaseItem
@@ -106,16 +160,6 @@ export const TabsShowcase = () => {
           orientation="vertical"
           classNames={verticalTabsClassNames}
         />
-      </ShowcaseItem>
-
-      <ShowcaseItem
-        title={
-          <>
-            Tabs cu <b>valoare implicită</b>
-          </>
-        }
-      >
-        <Tabs data={data} classNames={horizontalTabsClassNames} defaultTab={1} />
       </ShowcaseItem>
     </Showcase>
   );

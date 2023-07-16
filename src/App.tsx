@@ -8,12 +8,12 @@ import { SelectShowcase } from "./components/select-showcase";
 import { SliderShowcase } from "./components/slider-showcase";
 import { TabsShowcase } from "./components/tabs-showcase";
 import { TooltipShowcase } from "./components/tooltip-showcase";
+import { SwitchShowcase } from "./components/switch-showcase";
 
 function App() {
   return (
     <>
       <Tabs
-        defaultTab={5}
         data={[
           { element: "Accordion", panel: <AccordionShowcase /> },
           { element: "Checkbox", panel: <CheckboxShowcase /> },
@@ -22,12 +22,9 @@ function App() {
           { element: "RadioGroup", panel: <RadioGroupShowcase /> },
           { element: "Select", panel: <SelectShowcase /> },
           { element: "Slider", panel: <SliderShowcase /> },
-          { element: "Switch", panel: <div>Switch showcase</div> },
+          { element: "Switch", panel: <SwitchShowcase /> },
+          { element: "Tabs", panel: <TabsShowcase /> },
           { element: "Tooltip", panel: <TooltipShowcase /> },
-          {
-            element: "Tabs",
-            panel: <TabsShowcase />,
-          },
         ]}
         classNames={{
           root: "flex p-8 space-x-8",
