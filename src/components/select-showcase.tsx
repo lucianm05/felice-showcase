@@ -68,14 +68,11 @@ export const SelectShowcase = () => {
       >
         <Select
           {...selectProps}
-          renderOption={({ optionProps, option }) => {
+          renderOption={({ optionProps, option, state: { selected } }) => {
             return (
-              <li
-                {...optionProps}
-                className={cn( optionProps.className,"flex items-center justify-between w-full")}
-              >
+              <li {...optionProps} className={cn(optionProps.className)}>
                 <span>{option.label}</span>
-                <span>{optionProps["aria-selected"] && "✓"}</span>
+                <span>{selected && "✓"}</span>
               </li>
             );
           }}
