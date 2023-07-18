@@ -107,7 +107,7 @@ export const RadioGroupShowcase = () => {
                   <label {...labelProps} className="text-xl font-medium">
                     {btn.label}
                   </label>
-                  <p {...descriptionProps}>Descrierea topping-ului</p>
+                  <p {...descriptionProps}>Topping de {btn.label.toLowerCase()}</p>
                 </button>
               );
             },

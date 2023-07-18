@@ -129,8 +129,9 @@ export const DialogShowcase = () => {
                       },
                       button: {
                         default:
-                          "w-5 h-5 bg-white rounded-full border border-zinc-900",
+                          "w-5 h-5 rounded-full border border-zinc-900",
                         checked: "bg-slate-300",
+                        unchecked: 'bg-white',
                         disabled: "bg-slate-700 cursor-not-allowed",
                       },
                     },

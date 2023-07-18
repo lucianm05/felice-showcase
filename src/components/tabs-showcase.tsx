@@ -4,9 +4,50 @@ import { Showcase } from "./showcase/showcase";
 import { ShowcaseItem } from "./showcase/showcase-item";
 
 const data: Tab[] = [
-  { element: "Tab 1", panel: <div>Tab 1 </div> },
-  { element: "Tab 2", panel: <div>Tab 2 </div> },
-  { element: "Tab 3", panel: <div>Tab 3 </div> },
+  {
+    element: "Setări cont",
+    panel: (
+      <div>
+        <h4>Setările utilizatorului</h4>
+
+        <form className="mt-4">
+          <label className="flex flex-col">
+            <span>Nume</span>
+            <input
+              name="name"
+              defaultValue="Lucian"
+              className="border border-slate-400 bg-white px-4 py-1 rounded"
+            />
+          </label>
+        </form>
+      </div>
+    ),
+  },
+  {
+    element: "Adrese salvate",
+    panel: (
+      <div>
+        <h4>Adrese salvate</h4>
+        <ol className="list-decimal list-inside mt-4">
+          <li>Soseaua Colentina 21</li>
+          <li>Brebu Megieșesc</li>
+        </ol>
+      </div>
+    ),
+  },
+  {
+    element: "Comenzile mele",
+    panel: (
+      <div>
+        <h4>Comenzi</h4>
+        <ol className="mt-4 list-decimal list-inside">
+          <li>Comanda 1</li>
+          <li>Comanda 2</li>
+          <li>Comanda 3</li>
+        </ol>
+      </div>
+    ),
+  },
 ];
 
 const classNames: TabsClassNames = {
@@ -55,7 +96,7 @@ export const TabsShowcase = () => {
   return (
     <Showcase title="Prezentare Tabs">
       <ShowcaseItem title={<>Tabs nestilizat</>}>
-        <Tabs data={data} />
+        <Tabs label="Tabs name" data={data} />
       </ShowcaseItem>
 
       <ShowcaseItem
@@ -65,7 +106,11 @@ export const TabsShowcase = () => {
           </>
         }
       >
-        <Tabs data={data} classNames={horizontalTabsClassNames} />
+        <Tabs
+          label="Tabs name"
+          data={data}
+          classNames={horizontalTabsClassNames}
+        />
       </ShowcaseItem>
 
       <ShowcaseItem
@@ -76,6 +121,7 @@ export const TabsShowcase = () => {
         }
       >
         <Tabs
+          label="Tabs name"
           data={data}
           orientation="vertical"
           classNames={verticalTabsClassNames}
@@ -90,6 +136,7 @@ export const TabsShowcase = () => {
         }
       >
         <Tabs
+          label="Tabs name"
           data={data}
           classNames={horizontalTabsClassNames}
           defaultTab={1}
@@ -105,6 +152,7 @@ export const TabsShowcase = () => {
       >
         <div className="flex flex-col space-y-4">
           <Tabs
+            label="Tabs name"
             data={data}
             classNames={horizontalTabsClassNames}
             currentTab={currentTab}
@@ -139,6 +187,7 @@ export const TabsShowcase = () => {
         }
       >
         <Tabs
+          label="Tabs name"
           data={[
             data[0],
             data[1],

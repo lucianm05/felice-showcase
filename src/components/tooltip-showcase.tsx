@@ -44,14 +44,43 @@ export const TooltipShowcase = () => {
           </>
         }
       >
-        <Tooltip
-          content={tooltipContent}
-          side="bottom"
-          classNames={classNames}
-          sideOffset={16}
-        >
-          Reguli
-        </Tooltip>
+        <div className="grid grid-cols-4">
+          <Tooltip
+            content={tooltipContent}
+            side="bottom"
+            classNames={classNames}
+            sideOffset={4}
+          >
+            Reguli
+          </Tooltip>
+
+          <Tooltip
+            content={tooltipContent}
+            side="bottom"
+            classNames={classNames}
+            sideOffset={8}
+          >
+            Reguli
+          </Tooltip>
+
+          <Tooltip
+            content={tooltipContent}
+            side="bottom"
+            classNames={classNames}
+            sideOffset={16}
+          >
+            Reguli
+          </Tooltip>
+
+          <Tooltip
+            content={tooltipContent}
+            side="bottom"
+            classNames={classNames}
+            sideOffset={32}
+          >
+            Reguli
+          </Tooltip>
+        </div>
       </ShowcaseItem>
 
       <ShowcaseItem

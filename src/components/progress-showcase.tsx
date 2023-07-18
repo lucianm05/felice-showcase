@@ -79,6 +79,25 @@ export const ProgressShowcase = () => {
       <ShowcaseItem
         title={
           <>
+            Progress stilizat, cu <b>etichetă ascunsă</b>
+          </>
+        }
+      >
+        <Progress
+          label="Preluare date"
+          hideLabel
+          min={0}
+          max={100}
+          value={66}
+          classNames={classNames}
+        >
+          {progressIndicator}
+        </Progress>
+      </ShowcaseItem>
+
+      <ShowcaseItem
+        title={
+          <>
             Progress cu <b>state controlat extern</b>
           </>
         }

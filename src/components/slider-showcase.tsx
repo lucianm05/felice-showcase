@@ -29,7 +29,7 @@ const singleSliderProps: Omit<SliderProps, "ref"> = {
   max: 100,
   defaultValue: [18],
   step: 1,
-  multipleStep: 3,
+  multipleStep: 10,
 };
 
 const doubleSliderProps: Omit<SliderProps, "ref"> = {
