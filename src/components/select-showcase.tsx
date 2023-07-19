@@ -25,7 +25,7 @@ const classNames: SelectClassNames = {
     default: "w-max bg-white border border-slate-400 px-4 py-2 rounded",
     disabled: "opacity-50 cursor-not-allowed",
   },
-  list: "bg-white border border-slate-400 rounded mt-2 min-w-[19rem] ",
+  list: "bg-white border border-slate-400 rounded mt-2 min-w-[19rem]",
   option: {
     default: "px-4 py-2 cursor-pointer transition-colors",
     active: "bg-slate-300",
@@ -70,7 +70,13 @@ export const SelectShowcase = () => {
           {...selectProps}
           renderOption={({ optionProps, option, state: { selected } }) => {
             return (
-              <li {...optionProps} className={cn(optionProps.className, 'flex items-center justify-between')}>
+              <li
+                {...optionProps}
+                className={cn(
+                  optionProps.className,
+                  "flex items-center justify-between"
+                )}
+              >
                 <span>{option.label}</span>
                 <span>{selected && "✓"}</span>
               </li>

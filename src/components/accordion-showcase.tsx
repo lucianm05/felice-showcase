@@ -35,11 +35,6 @@ export const AccordionShowcase = () => {
         />
       </ShowcaseItem>
 
-      <Accordion 
-        data={[]} 
-        classNames={{trigger: {}}} 
-      />
-
       <ShowcaseItem title="Mai multe Accordion nestilizate">
         <Accordion
           data={[

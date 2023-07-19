@@ -11,7 +11,7 @@ const classNames: DialogClassNames = {
   header: "flex items-center justify-between",
   closeButton: "text-2xl",
   trigger:
-    "py-2 px-4 rounded bg-slate-400 text-white hover:bg-slate-500 focus:bg-slate-600 transition-colors data-[disabled=true]:bg-slate-700 data-[disabled=true]:text-slate-400 data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-not-allowed",
+    "py-2 px-4 rounded bg-cyan-500 text-white hover:bg-cyan-600 focus:bg-cyan-700 transition-colors data-[disabled=true]:bg-slate-700 data-[disabled=true]:text-slate-400 data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-not-allowed",
 };
 
 export const DialogShowcase = () => {
